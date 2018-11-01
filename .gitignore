@@ -1,0 +1,16 @@
+.git
+.hg
+verifyhash
+*.ids
+*.iml
+*.ipr
+*.iws
+*.orig
+*.patch
+*generated*
+.idea/
+.m2/*
+dist/
+logs/
+out/
+target/

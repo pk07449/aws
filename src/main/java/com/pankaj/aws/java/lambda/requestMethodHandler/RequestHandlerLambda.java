@@ -14,6 +14,8 @@ public class RequestHandlerLambda implements RequestHandler<Request,Response> {
         response.setId(100 + request.getId());
         response.setName("Hello "+request.getName());
 
+        System.out.println(response);
+
         return response;
     }
 }

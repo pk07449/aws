@@ -22,4 +22,12 @@ public class Response {
     public void setName(String name) {
         this.name = name;
     }
+
+    @Override
+    public String toString() {
+        return "Response{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                '}';
+    }
 }

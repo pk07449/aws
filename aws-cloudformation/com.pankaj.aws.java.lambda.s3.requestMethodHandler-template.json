@@ -10,7 +10,7 @@
           "S3Key": "lambda.methodhandler-1.0.2.jar"
         },
         "FunctionName": "SimpleRequest",
-        "Handler": "com.pankaj.aws.java.lambda.requestMethodHandler.RequestHandlerLambda::handleRequest",
+        "Handler": "com.pankaj.aws.java.lambda.s3.requestMethodHandler.RequestHandlerLambda::handleRequest",
         "MemorySize": 128,
         "Role": "arn:aws:iam::292661884468:role/handleRequestMethodLambdaRole",
         "Runtime": "java8"

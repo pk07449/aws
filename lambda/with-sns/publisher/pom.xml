@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.pankaj.aws.java</groupId>
-    <artifactId>lambda.methodhandler</artifactId>
+    <artifactId>lambda.sns.publisher.methodhandler</artifactId>
     <version>2.0.0</version>
 
     <dependencies>

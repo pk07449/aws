@@ -1,4 +1,4 @@
-package com.pankaj.aws.java.lambda.sns.requestMethodHandler;
+package com.pankaj.aws.java.lambda.requestMethodHandler;
 
 /**
  * Created by pankaj on 11/2/2018.

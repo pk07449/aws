@@ -10,10 +10,25 @@
           "S3Key": "lambda.methodhandler-1.0.2.jar"
         },
         "FunctionName": "sales-order-sns-function",
-        "Handler": "com.pankaj.aws.java.lambda.sns.requestMethodHandler.RequestHandlerLambda::handleRequest",
+        "Handler": "com.pankaj.aws.sns.lambda.publisher.requestMethodHandler.RequestHandlerLambda::handleRequest",
         "MemorySize": 128,
         "Role": "arn:aws:iam::292661884468:role/handleRequestMethodLambdaRole",
         "Runtime": "java8"
+      }
+    },
+    "sales-order-sns-subscriber": {
+      "Type": "AWS::SNS::Subscription",
+      "Properties": {
+        "Endpoint": {
+          "Fn::GetAtt": [
+            "Lambda",
+            "arn:aws:lambda:us-east-1:292661884468:function:sales-orders-sns-function"
+          ]
+        },
+        "Protocol": "lambda",
+        "RawMessageDelivery": true,
+        "Region": "us-east-1",
+        "TopicArn": "arn:aws:sns:us-east-1:292661884468:sales-order"
       }
     }
   }

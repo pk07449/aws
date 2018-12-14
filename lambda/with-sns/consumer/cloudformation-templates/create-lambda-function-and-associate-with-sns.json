@@ -2,7 +2,7 @@
   "AWSTemplateFormatVersion": "2010-09-09",
   "Description": "lambda Enablement service",
   "Resources": {
-    "salesOrderSnsFunction": {
+    "SalesOrderSnsFunctionResource": {
       "Type": "AWS::Lambda::Function",
       "Properties": {
         "Code": {
@@ -16,19 +16,17 @@
         "Runtime": "java8"
       }
     },
-    "salesOrderSnsSubscriber": {
+    "LambdaSubscription": {
       "Type": "AWS::SNS::Subscription",
       "Properties": {
+        "TopicArn": "arn:aws:sns:us-east-1:292661884468:sales-order",
+        "Protocol": "lambda",
         "Endpoint": {
           "Fn::GetAtt": [
-            "Lambda",
-            "arn:aws:lambda:us-east-1:292661884468:function:salesOrderSnsFunction"
+            "SalesOrderSnsFunctionResource",
+            "Arn"
           ]
-        },
-        "Protocol": "lambda",
-        "RawMessageDelivery": true,
-        "Region": "us-east-1",
-        "TopicArn": "arn:aws:sns:us-east-1:292661884468:sales-order"
+        }
       }
     }
   }

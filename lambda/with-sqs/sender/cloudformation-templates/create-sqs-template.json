@@ -1,0 +1,31 @@
+{
+  "AWSTemplateFormatVersion": "2010-09-09",
+  "Description": "sqs sales service queue",
+  "Resources": {
+    "SalesOrderQueue": {
+      "Type": "AWS::SQS::Queue",
+      "Properties": {
+        "QueueName": "sales-order-queue",
+        "DelaySeconds": 5,
+        "VisibilityTimeout": 300,
+        "MessageRetentionPeriod": 1209600,
+        "RedrivePolicy": {
+          "deadLetterTargetArn": {
+            "Fn::GetAtt": [
+              "SalesOrderQueueDeadLetterQueue",
+              "Arn"
+            ]
+          },
+          "maxReceiveCount": 15
+        }
+      }
+    },
+    "SalesOrderQueueDeadLetterQueue": {
+      "Type": "AWS::SQS::Queue",
+      "Properties": {
+        "QueueName": "sales-order-queue-dead-letter-queue",
+        "MessageRetentionPeriod":  1209600
+      }
+    }
+  }
+}

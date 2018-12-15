@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<settings xmlns="http://maven.apache.org/SETTINGS/1.1.0">
+<localRepository>C:\Users\pankaj\.m2\repository</localRepository>
+<servers>
+<server>
+<id>deployment</id>
+<username>admin</username>
+<password>admin123</password>
+</server>
+</servers>
+</settings>

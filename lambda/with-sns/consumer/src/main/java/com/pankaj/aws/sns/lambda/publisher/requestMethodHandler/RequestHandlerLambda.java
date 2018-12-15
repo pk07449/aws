@@ -6,20 +6,20 @@ import com.amazonaws.services.lambda.runtime.RequestHandler;
 /**
  * Created by pankaj on 11/2/2018.
  */
-public class RequestHandlerLambda implements RequestHandler<String,String> {
+public class RequestHandlerLambda implements RequestHandler<Request,Response> {
 
-    public String handleRequest(String payload, Context context) {
+
+    public Response handleRequest(Request request, Context context) {
 
         Response response = new Response();
+        response.setId(100 + request.getId());
+        response.setName("Hello "+request.getName());
 
-
-        System.out.println("RequestHandlerLambda.pyaload start");
-        System.out.println(payload);
-        System.out.println("RequestHandlerLambda.pyaload end");
-        System.out.println("RequestHandlerLambda context start");
+        System.out.println("RequestHandlerLambda start");
         System.out.println(response);
-        System.out.println("RequestHandlerLambda context end");
+        System.out.println("RequestHandlerLambda end");
 
-        return payload;
+        return response;
     }
+
 }

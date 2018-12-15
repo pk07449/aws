@@ -4,9 +4,9 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.pankaj.aws.java</groupId>
-    <artifactId>lambda.sns.consumer.methodhandler</artifactId>
-    <version>2.0.0</version>
+    <groupId>lambda</groupId>
+    <artifactId>lambda.methodhandler</artifactId>
+    <version>1.0.2</version>
 
     <dependencies>
         <dependency>

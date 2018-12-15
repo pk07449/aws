@@ -16,8 +16,9 @@ public class MessageSender {
     MessageConfig config = new MessageConfig();
 
     AmazonSNSClient snsClient = new AmazonSNSClient(new AWSCredentialsProvider() {
-        public AWSCredentials getCredentials() {
-            return new BasicAWSCredentials("accessKey", "secretkey");
+        public AWSCredentials getCredentials()
+        {
+            return new BasicAWSCredentials("AKIAJ75MUYWWDBF3VJPQ", "Ksz232uGmZQkENOAJ6ESjrXdhECm///PyAuyw+h7");
         }
         public void refresh() {
 

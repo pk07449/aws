@@ -14,10 +14,10 @@ public class RequestHandlerLambda implements RequestHandler<Request,Response> {
         response.setId(100 + request.getId());
         response.setName("Hello "+request.getName());
 
-        MessageSender messageSender = new MessageSender();
-        Message message = new Message();
-        message.setTxtMessage("Hello sqs world");
-        messageSender.send(message);
+//        MessageSender messageSender = new MessageSender();
+//        Message message = new Message();
+//        message.setTxtMessage("Hello sqs world");
+//        messageSender.send(message);
 
         System.out.println("RequestHandlerLambda start");
         System.out.println(response);

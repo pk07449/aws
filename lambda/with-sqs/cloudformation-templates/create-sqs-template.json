@@ -5,7 +5,7 @@
     "SalesOrderQueue": {
       "Type": "AWS::SQS::Queue",
       "Properties": {
-        "QueueName": "sales-order-queue",
+        "QueueName": "sales-order",
         "DelaySeconds": 5,
         "VisibilityTimeout": 300,
         "MessageRetentionPeriod": 1209600,

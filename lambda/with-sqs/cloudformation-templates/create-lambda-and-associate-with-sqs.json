@@ -16,20 +16,18 @@
         "Runtime": "java8"
       }
     },
-    "LambdaSubscription": {
-      "Type": "AWS::SNS::Subscription",
+
+    "PermissionForEventsToInvokeLambdaFromSqs": {
+      "Type": "AWS::Lambda::EventSourceMapping",
+      "DependsOn": ["SalesOrderSqsFunctionResource","PermissionForEventsToInvokeLambdaFromSqs"],
       "Properties": {
-        "TopicArn": "arn:aws:sqs:us-east-1:292661884468:sales-order",
-        "Protocol": "lambda",
-        "Endpoint": {
-          "Fn::GetAtt": [
-            "SalesOrderSqsFunctionResource",
-            "Arn"
-          ]
-        }
+        "EventSourceArn": "arn:aws:sqs:us-east-1:292661884468:sales-order",
+        "BatchSize": 10,
+        "Enabled": true,
+        "FunctionName": "salesOrderSqsFunction"
       }
     },
-    "PermissionForEventsToInvokeLambda": {
+    "PermissionForEventsToInvokeLambdaFromSqs": {
       "Type": "AWS::Lambda::Permission",
       "Properties": {
         "FunctionName": {
@@ -40,7 +38,7 @@
         },
         "Action": "lambda:InvokeFunction",
         "Principal": "sns.amazonaws.com",
-        "SourceArn": "arn:aws:sns:us-east-1:292661884468:sales-order"
+        "SourceArn":  "arn:aws:sqs:us-east-1:292661884468:sales-order"
       }
     }
   }

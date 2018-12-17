@@ -17,9 +17,9 @@
       }
     },
 
-    "PermissionForEventsToInvokeLambdaFromSqs": {
+    "EventsSourceMappingToInvokeLambdaFromSqs": {
       "Type": "AWS::Lambda::EventSourceMapping",
-      "DependsOn": ["SalesOrderSqsFunctionResource","PermissionForEventsToInvokeLambdaFromSqs"],
+      "DependsOn": ["SalesOrderSqsFunctionResource","PermissionToInvokeLambdaFromSqs"],
       "Properties": {
         "EventSourceArn": "arn:aws:sqs:us-east-1:292661884468:sales-order",
         "BatchSize": 10,
@@ -27,7 +27,7 @@
         "FunctionName": "salesOrderSqsFunction"
       }
     },
-    "PermissionForEventsToInvokeLambdaFromSqs": {
+    "PermissionToInvokeLambdaFromSqs": {
       "Type": "AWS::Lambda::Permission",
       "Properties": {
         "FunctionName": {

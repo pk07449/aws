@@ -25,9 +25,9 @@
       "Type": "AWS::ApiGateway::Method",
       "Properties": {
         "AuthorizationType": "NONE",
-        "HttpMethod": "POST",
+        "HttpMethod": "GET",
         "Integration": {
-          "IntegrationHttpMethod": "POST",
+          "IntegrationHttpMethod": "GET",
           "Type": "AWS_PROXY",
           "Uri": {"Fn::Join": ["",
             ["arn:aws:apigateway:", {"Ref": "AWS::Region"}, ":lambda:path/2015-03-31/functions/", {"Fn::GetAtt": ["lambdaFunction", "Arn"]}, "/invocations"]
@@ -63,7 +63,7 @@
       "Properties": {
         "Code": {
           "S3Bucket": "pankaj-lambda-functions-bucket",
-          "S3Key": "lambda.methodhandler-2.0.0.jar"
+          "S3Key": "lambda.methodhandler-1.0.2.jar"
         },
         "Description": "My function",
         "FunctionName": {
@@ -93,7 +93,7 @@
         },
         "Principal": "apigateway.amazonaws.com",
         "SourceArn": {
-          "Fn::Sub": "arn:aws:execute-api:${AWS::Region}:${AWS::AccountId}:${apiGateway}/*/POST/"
+          "Fn::Sub": "arn:aws:execute-api:${AWS::Region}:${AWS::AccountId}:${apiGateway}/*/GET/"
         }
       }
     },
@@ -139,15 +139,6 @@
             "PolicyName": "lambda"
           }
         ]
-      }
-    },
-    "lambdaLogGroup": {
-      "Type": "AWS::Logs::LogGroup",
-      "Properties": {
-        "LogGroupName": {
-          "Fn::Sub": "/aws/lambda/${lambdaFunctionName}"
-        },
-        "RetentionInDays": 90
       }
     }
   },

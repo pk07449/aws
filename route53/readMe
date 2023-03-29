@@ -1,0 +1,4 @@
+1. IPV4 is 32 bit and IPV6 is 128bits.
+2. ELB do not have pre defined IPv4 addresses, you reslolve to them using DNM name.
+3. Diff b/w Alias Record and CName
+4. Given the choice, always choose an Alias Record over CName.
